@@ -1,4 +1,4 @@
-package dev.layseiras.encurtador.domain;
+package dev.layseiras.encurtador.domain.entity;
 
 import java.time.LocalDateTime;
 
