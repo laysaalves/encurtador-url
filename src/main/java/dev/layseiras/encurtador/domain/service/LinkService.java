@@ -15,20 +15,21 @@ public class LinkService {
         this.linkRepository = linkRepository;
     }
 
-    public String generateRandomUrl(){
+    public String generateRandomShortUrl() {
         return RandomStringUtils.randomAlphanumeric(5, 10);
     }
 
-    public Link createLink(String urlCommun){
+    public Link createShortenedLink(String originalUrl) {
         Link link = new Link();
-        link.setUrlCommun(urlCommun);
-        link.setUrlShortened(generateRandomUrl());
+        link.setUrlCommun(originalUrl);
+        link.setUrlShortened(generateRandomShortUrl());
         link.setCreatedAt(LocalDateTime.now());
 
         return linkRepository.save(link);
     }
 
-    public Link getLinkFinished(String urlShortened){
-        return linkRepository.findByUrl(urlShortened);
+    public Link getLinkByShortenedUrl(String shortenedUrl) {
+        return linkRepository.findByUrl(shortenedUrl);
     }
 }
+
