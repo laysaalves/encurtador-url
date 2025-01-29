@@ -6,7 +6,9 @@ services:
       MYSQL_DATABASE: EncurtadorUrl
       MYSQL_ROOT_PASSWORD: password
     volumes:
-      - mysql-data:/var/lib/mysql
+      - "mysql-data:/var/lib/mysql"
     ports:
       - "3307:3306"
     restart: always
+volumes:
+  mysql-data:
