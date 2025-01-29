@@ -5,15 +5,15 @@ import java.time.LocalDateTime;
 public class LinkResponse {
     private Long id;
     private String urlCommun;
-    private String urlShorted;
+    private String urlShortened;
     private LocalDateTime createdAt;
 
     public LinkResponse() {}
 
-    public LinkResponse(Long id, String urlCommun, String urlShorted, LocalDateTime createdAt) {
+    public LinkResponse(Long id, String urlCommun, String urlShortened, LocalDateTime createdAt) {
         this.id = id;
         this.urlCommun = urlCommun;
-        this.urlShorted = urlShorted;
+        this.urlShortened = urlShortened;
         this.createdAt = createdAt;
     }
 
@@ -34,11 +34,11 @@ public class LinkResponse {
     }
 
     public String getUrlShorted() {
-        return urlShorted;
+        return urlShortened;
     }
 
-    public void setUrlShorted(String urlShorted) {
-        this.urlShorted = urlShorted;
+    public void setUrlShorted(String urlShortened) {
+        this.urlShortened = urlShortened;
     }
 
     public LocalDateTime getCreatedAt() {
