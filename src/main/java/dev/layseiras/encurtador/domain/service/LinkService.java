@@ -1,7 +1,7 @@
 package dev.layseiras.encurtador.domain.service;
 
 import dev.layseiras.encurtador.domain.entity.Link;
-import dev.layseiras.encurtador.infra.LinkRepository;
+import dev.layseiras.encurtador.infra.repository.LinkRepository;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Service;
 
@@ -28,8 +28,12 @@ public class LinkService {
         return linkRepository.save(link);
     }
 
-    public Link getLinkByShortenedUrl(String shortenedUrl) {
-        return linkRepository.findByUrl(shortenedUrl);
+    public Link getOriginalUrl(String shortenedUrl) {
+        try {
+            return linkRepository.findByUrl(shortenedUrl);
+        } catch (Exception error) {
+            throw new RuntimeException("url not found: ", error);
+        }
     }
 }
 
