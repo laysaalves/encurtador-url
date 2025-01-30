@@ -1,4 +1,4 @@
-package dev.layseiras.encurtador.infra;
+package dev.layseiras.encurtador.infra.repository;
 
 import dev.layseiras.encurtador.domain.entity.Link;
 import org.springframework.data.jpa.repository.JpaRepository;
