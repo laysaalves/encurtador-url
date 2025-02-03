@@ -12,10 +12,10 @@ public class Link {
     private Long id;
 
     @Column(name = "url_longa")
-    private String urlCommun;
+    private String urlLonga;
 
     @Column(name = "url_encurtada")
-    private String urlShortened;
+    private String urlEncurtada;
 
     @Column(name = "criada_em")
     private LocalDateTime createdAt;
@@ -24,10 +24,10 @@ public class Link {
         this.id = id;
     }
 
-    public Link(Long id, String urlCommun, String urlShortened, LocalDateTime createdAt) {
+    public Link(Long id, String urlLonga, String urlEncurtada, LocalDateTime createdAt) {
         this.id = id;
-        this.urlCommun = urlCommun;
-        this.urlShortened = urlShortened;
+        this.urlLonga = urlLonga;
+        this.urlEncurtada = urlEncurtada;
         this.createdAt = createdAt;
     }
 
@@ -39,20 +39,20 @@ public class Link {
         this.id = id;
     }
 
-    public String getUrlCommun() {
-        return urlCommun;
+    public String getUrlLonga() {
+        return urlLonga;
     }
 
-    public void setUrlCommun(String urlCommun) {
-        this.urlCommun = urlCommun;
+    public void setUrlLonga(String urlLonga) {
+        this.urlLonga = urlLonga;
     }
 
-    public String getUrlShortened() {
-        return urlShortened;
+    public String getUrlEncurtada() {
+        return urlEncurtada;
     }
 
-    public void setUrlShortened(String urlShortened) {
-        this.urlShortened = urlShortened;
+    public void setUrlEncurtada(String urlEncurtada) {
+        this.urlEncurtada = urlEncurtada;
     }
 
     public LocalDateTime getCreatedAt() {

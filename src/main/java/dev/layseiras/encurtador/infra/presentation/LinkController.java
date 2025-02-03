@@ -22,24 +22,24 @@ public class LinkController {
     @PostMapping("/encurtei")
     public ResponseEntity<LinkResponse>GenerateShorterUrl(@RequestBody Map<String, String> req){
         String urlOriginal = req.get("urlOriginal");
-        Link link = linkService.createShortenedLink(urlOriginal);
+        Link link = linkService.createLinkEncurtado(urlOriginal);
 
-        String generateUserRedirect = "http://localhost:8080/r/" + link.getUrlShortened();
+        String generateUserRedirect = "http://localhost:8080/r/" + link.getUrlEncurtada();
 
         LinkResponse response = new LinkResponse(
                 link.getId(),
-                link.getUrlCommun(),
+                link.getUrlLonga(),
                 generateUserRedirect,
                 link.getCreatedAt()
         );
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    @GetMapping("/r/{urlShortened}")
-    public void httpUrl(@PathVariable String urlShortened, HttpServletResponse response) throws IOException {
-        Link link = linkService.getOriginalUrl(urlShortened);
+    @GetMapping("/r/{urlEncurtada}")
+    public void httpUrl(@PathVariable String urlEncurtada, HttpServletResponse response) throws IOException {
+        Link link = linkService.getOriginalUrl(urlEncurtada);
         if (link != null){
-            response.sendRedirect(link.getUrlCommun());
+            response.sendRedirect(link.getUrlLonga());
         } else {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }

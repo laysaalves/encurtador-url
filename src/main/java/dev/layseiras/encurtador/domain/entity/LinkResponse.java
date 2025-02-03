@@ -4,16 +4,16 @@ import java.time.LocalDateTime;
 
 public class LinkResponse {
     private Long id;
-    private String urlCommun;
-    private String urlShortened;
+    private String urlLonga;
+    private String urlEncurtada;
     private LocalDateTime createdAt;
 
     public LinkResponse() {}
 
-    public LinkResponse(Long id, String urlCommun, String urlShortened, LocalDateTime createdAt) {
+    public LinkResponse(Long id, String urlLonga, String urlEncurtada, LocalDateTime createdAt) {
         this.id = id;
-        this.urlCommun = urlCommun;
-        this.urlShortened = urlShortened;
+        this.urlLonga = urlLonga;
+        this.urlEncurtada = urlEncurtada;
         this.createdAt = createdAt;
     }
 
@@ -25,20 +25,20 @@ public class LinkResponse {
         this.id = id;
     }
 
-    public String getUrlCommun() {
-        return urlCommun;
+    public String getUrlLonga() {
+        return urlLonga;
     }
 
-    public void setUrlCommun(String urlCommun) {
-        this.urlCommun = urlCommun;
+    public void setUrlLonga(String urlLonga) {
+        this.urlLonga = urlLonga;
     }
 
     public String getUrlShorted() {
-        return urlShortened;
+        return urlEncurtada;
     }
 
     public void setUrlShorted(String urlShortened) {
-        this.urlShortened = urlShortened;
+        this.urlEncurtada = urlShortened;
     }
 
     public LocalDateTime getCreatedAt() {

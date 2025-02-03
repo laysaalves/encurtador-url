@@ -19,10 +19,10 @@ public class LinkService {
         return RandomStringUtils.randomAlphanumeric(5, 10);
     }
 
-    public Link createShortenedLink(String originalUrl) {
+    public Link createLinkEncurtado(String originalUrl) {
         Link link = new Link();
-        link.setUrlCommun(originalUrl);
-        link.setUrlShortened(generateRandomShortUrl());
+        link.setUrlLonga(originalUrl);
+        link.setUrlEncurtada(generateRandomShortUrl());
         link.setCreatedAt(LocalDateTime.now());
 
         return linkRepository.save(link);
