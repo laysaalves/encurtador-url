@@ -9,13 +9,14 @@ import java.time.LocalDateTime;
 
 @Service
 public class LinkService {
+
     private LinkRepository linkRepository;
 
     public LinkService(LinkRepository linkRepository) {
         this.linkRepository = linkRepository;
     }
 
-    public String generateRandomShortUrl() {
+    public String generateRandomShortUrl(){
         return RandomStringUtils.randomAlphanumeric(5, 10);
     }
 
@@ -28,11 +29,11 @@ public class LinkService {
         return linkRepository.save(link);
     }
 
-    public Link getOriginalUrl(String shortenedUrl) {
+    public Link getOriginalUrl(String urlEncurtada) {
         try {
-            return linkRepository.findByUrl(shortenedUrl);
-        } catch (Exception error) {
-            throw new RuntimeException("url not found: ", error);
+            return linkRepository.findByUrl(urlEncurtada);
+        } catch (Exception error){
+            throw new RuntimeException("URL não encontrada: " + urlEncurtada, error);
         }
     }
 }
