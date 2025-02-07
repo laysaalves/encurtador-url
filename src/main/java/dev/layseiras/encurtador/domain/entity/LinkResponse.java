@@ -8,7 +8,8 @@ public class LinkResponse {
     private String urlEncurtada;
     private LocalDateTime createdAt;
 
-    public LinkResponse() {}
+    public LinkResponse() {
+    }
 
     public LinkResponse(Long id, String urlLonga, String urlEncurtada, LocalDateTime createdAt) {
         this.id = id;
@@ -33,12 +34,12 @@ public class LinkResponse {
         this.urlLonga = urlLonga;
     }
 
-    public String getUrlShorted() {
+    public String getUrlurlEncurtada() {
         return urlEncurtada;
     }
 
-    public void setUrlShorted(String urlShortened) {
-        this.urlEncurtada = urlShortened;
+    public void setUrlurlEncurtada(String urlurlEncurtada) {
+        this.urlEncurtada = urlurlEncurtada;
     }
 
     public LocalDateTime getCreatedAt() {

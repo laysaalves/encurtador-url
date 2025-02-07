@@ -1,13 +1,12 @@
 spring:
-  application:
-    name: encurtador
-
   datasource:
-    url: jdbc:mysql://localhost:3307/EncurtadorUrl?useTimezone=true@serverTimeZone=UTC
-    username: mysql
-    password: mysql
+    url: jdbc:mysql://localhost:3307/EncurtadorUrl?useTimezone=true&serverTimezone=UTC
+    username: root
+    password: password
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect
+    database-platform: org.hibernate.dialect.MySQLDialect
     show-sql: true
+    hibernate:
+      ddl-auto: update

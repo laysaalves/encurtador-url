@@ -6,17 +6,18 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 public class LinkService {
 
-    private LinkRepository linkRepository;
+    private final LinkRepository linkRepository;
 
     public LinkService(LinkRepository linkRepository) {
         this.linkRepository = linkRepository;
     }
 
-    public String generateRandomShortUrl(){
+    public String generateRandomShortUrl() {
         return RandomStringUtils.randomAlphanumeric(5, 10);
     }
 
@@ -30,11 +31,12 @@ public class LinkService {
     }
 
     public Link getOriginalUrl(String urlEncurtada) {
-        try {
-            return linkRepository.findByUrl(urlEncurtada);
-        } catch (Exception error){
-            throw new RuntimeException("URL não encontrada: " + urlEncurtada, error);
-        }
+        Optional<Link> link = linkRepository.findByUrlEncurtada(urlEncurtada);
+
+        return link.orElseThrow(() ->
+                new RuntimeException("URL não encontrada: " + urlEncurtada)
+        );
     }
 }
+
 
